@@ -1,0 +1,16 @@
+<ion-menu side="start" menuId="first" contentId="router">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Start Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item routerLink="/home" (click)="closeMenu()">Inicio</ion-item>
+      <ion-item routerLink="/schedule" (click)="closeMenu()">Horario</ion-item>
+      <ion-item (click)="closeMenu()">Calendario</ion-item>
+      <ion-item (click)="closeMenu()">Talleres</ion-item>
+      <ion-item (click)="closeMenu()">Comunidades</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
