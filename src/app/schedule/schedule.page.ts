@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { title } from 'process';
 import { ClassDTO } from '../DTO/class.dto';
 import { ScheduleService } from '../service/schedule/schedule.service';
 
@@ -21,14 +22,43 @@ export class SchedulePage implements OnInit {
   constructor(private scheduleService: ScheduleService) {
   }
 
-  ngOnInit(): void {
-    const schedule = this.scheduleService.getSchedule({id: 0, name: 'Jorge'});
+  public chooseStudent( event: any ) {
+    console.log(event); // Normalmente el valor se encuentra en ( event.detail.value )
+    //Vacío la lista
+    this.tiles.splice(6, this.tiles.length - 6);
+    const schedule = this.scheduleService.getSchedule({id: 0, name: event.detail.value});
     this.calculateClass(9, schedule.classes);
     this.calculateClass(11, schedule.classes);
     this.calculateClass(13, schedule.classes);
     this.calculateClass(15, schedule.classes);
     this.calculateClass(17, schedule.classes);
     this.calculateClass(19, schedule.classes);
+}
+
+  ngOnInit(): void {
+    //Hacer un input para diferenciar de Jorge y de Marta
+    const schedule = this.scheduleService.getSchedule({id: 0, name:'vacio'});
+    this.calculateClass(9, schedule.classes);
+    this.calculateClass(11, schedule.classes);
+    this.calculateClass(13, schedule.classes);
+    this.calculateClass(15, schedule.classes);
+    this.calculateClass(17, schedule.classes);
+    this.calculateClass(19, schedule.classes);
+    // const schedule = this.scheduleService.getSchedule({id: 0, name: 'Jorge'});
+    // this.calculateClass(9, schedule.classes);
+    // this.calculateClass(11, schedule.classes);
+    // this.calculateClass(13, schedule.classes);
+    // this.calculateClass(15, schedule.classes);
+    // this.calculateClass(17, schedule.classes);
+    // this.calculateClass(19, schedule.classes);
+
+    // const schedule = this.scheduleService.getSchedule({id: 0, name: 'Marta'});
+    // this.calculateClass(9, schedule.classes);
+    // this.calculateClass(11, schedule.classes);
+    // this.calculateClass(13, schedule.classes);
+    // this.calculateClass(15, schedule.classes);
+    // this.calculateClass(17, schedule.classes);
+    // this.calculateClass(19, schedule.classes);
   }
 
   private calculateClass(hour: number, classes: ClassDTO[])
@@ -38,7 +68,7 @@ export class SchedulePage implements OnInit {
     this.tiles.push(this.calculateTile('Monday', classesAtHour));
     this.tiles.push(this.calculateTile('Tuesday', classesAtHour));
     this.tiles.push(this.calculateTile('Wednesday', classesAtHour));
-    this.tiles.push(this.calculateTile('Thurdays', classesAtHour));
+    this.tiles.push(this.calculateTile('Thurday', classesAtHour));
     this.tiles.push(this.calculateTile('Friday', classesAtHour));
   }
 

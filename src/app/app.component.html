@@ -1,20 +1,29 @@
 <ion-app>
   <ion-toolbar>
     <ion-buttons slot="start">
+      <img src="/assets/logo_u-tad.png" width="5%" height="5%"/>
       <ion-menu-button auto-hide="false" (click)='menu()'></ion-menu-button>
+      <ion-title class="ion-text-center">U-TAD</ion-title>
     </ion-buttons>
+
     <ion-buttons slot="primary">
       <ion-button>
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
+
+      <!-- <ion-chip>
+        <ion-avatar>
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-label>Avatar Chip</ion-label>
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-chip> -->
+
       <ion-button>
         <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
       </ion-button>
     </ion-buttons>
 
-
-
-    <ion-title class="ion-text-center">U-TAD</ion-title>
   </ion-toolbar>
   <app-menu></app-menu>
   <ion-router-outlet id="router"></ion-router-outlet>
