@@ -1,16 +1,18 @@
-<ion-menu side="start" menuId="first" contentId="router">
+<ion-menu class ="my-menu" side="start" menuId="first" contentId="router">
   <ion-header>
     <ion-toolbar color="primary">
-      <ion-title>Start Menu</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content class="menu">
     <ion-list>
       <ion-item routerLink="/home" (click)="closeMenu()">Inicio</ion-item>
+      <!-- Para el loging https://stalinmaza97.hashnode.dev/ionic-4-input-password-con-boton-para-mostrarocultar-texto -->
       <ion-item routerLink="/schedule" (click)="closeMenu()">Horario</ion-item>
       <ion-item (click)="closeMenu()">Calendario</ion-item>
       <ion-item (click)="closeMenu()">Talleres</ion-item>
       <ion-item (click)="closeMenu()">Comunidades</ion-item>
+      <ion-item (click)="closeMenu()"> U-Talk</ion-item> <!--https://ionicframework.com/docs/api/modal-->
     </ion-list>
   </ion-content>
 </ion-menu>

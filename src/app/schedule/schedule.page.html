@@ -6,7 +6,8 @@
 
 <ion-content>
   <br>
-  <ion-title>Horario</ion-title>
+  <ion-title>Horario de</ion-title>
+  <ion-input id="student" type="string" inputmode="string" placeholder="Student name" (ionChange)="chooseStudent($event)"></ion-input>
   <br>
   <ion-grid>
     <ion-row>
@@ -15,24 +16,7 @@
         [size]="tile.cols" class="ion-text-center">
         {{tile.text}}
       </ion-col>
-      <!-- <ion-col size="2">
-        <div class="ion-text-center">Hora</div>
-      </ion-col>
-      <ion-col size="2">
-        <div class="ion-text-center">Lunes</div>
-      </ion-col>
-      <ion-col  size="2">
-        <div class="ion-text-center">Martes</div>
-      </ion-col>
-      <ion-col  size="2">
-        <div class="ion-text-center">Miércoles</div>
-      </ion-col>
-      <ion-col  size="2">
-        <div class="ion-text-center">Jueves</div>
-      </ion-col>
-      <ion-col  size="2">
-        <div class="ion-text-center">Viernes</div>
-      </ion-col> -->
+
     </ion-row>
     <ion-row>
 
