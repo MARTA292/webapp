@@ -12,8 +12,9 @@ import { ScheduleService } from '../service/schedule/schedule.service';
 })
 export class SchedulePage implements OnInit {
 
+  columnSize = 2;
   tiles: Tile[] = [
-    {text: 'Hora', cols: 2, rows: 1, color: 'lightblue', text2: ''},
+    {text: 'Hora', cols: this.columnSize, rows: 1, color: 'lightblue', text2: ''},
     // {text: 'Lunes', cols: 2, rows: 1, color: '#DDBDF1', text2: ''},
     // {text: 'Martes', cols: 2, rows: 1, color: 'lightpink', text2: ''},
     // {text: 'Miércoles', cols: 2, rows: 1, color: 'lightyellow', text2: ''},
@@ -29,8 +30,10 @@ export class SchedulePage implements OnInit {
     //Vacío la lista
     this.tiles.splice(1, this.tiles.length - 1);
     this.scheduleService.getSchedule({id: 0, name: event.detail.value}).subscribe((schedule: ScheduleDTO)=>{
+      this.columnSize = 12/schedule.scheduleSchema.days.length;
       this.showDays(schedule);
-      this.showClass(schedule);});
+      this.showClass(schedule);
+    });
 }
 
   ngOnInit(): void {
@@ -59,7 +62,9 @@ export class SchedulePage implements OnInit {
   // }
   private showDays(schedule: ScheduleDTO)
   {
-    schedule.scheduleSchema.days.forEach(day => { this.tiles.push({text: day, cols: 2, rows: 1, color: 'lightblue', text2: ''});});
+    schedule.scheduleSchema.days.forEach(day => {
+      this.tiles.push({text: day, cols: this.columnSize, rows: 1, color: 'lightblue', text2: ''});
+    });
   }
   private showClass(schedule: ScheduleDTO)
   {
@@ -73,7 +78,7 @@ export class SchedulePage implements OnInit {
   }
   private calculateClass(hour: string, days: string[], classes: ClassDTO[])
   {
-    this.tiles.push({text: hour + ':00', cols: 2, rows: 1, color: '#DDBDF1', text2: ''});
+    this.tiles.push({text: hour + ':00', cols: this.columnSize, rows: 1, color: '#DDBDF1', text2: ''});
     const classesAtHour = classes.filter(cls => cls.startTime === hour);
     console.log(days);
     days.forEach(day => this.tiles.push(this.calculateTile(day, classesAtHour)));
@@ -88,9 +93,9 @@ export class SchedulePage implements OnInit {
   {
     const cls = classes.find(c => c.day === day);
     if (cls != null){
-      return {text: cls.name, cols: 2, rows: 1, color: '', text2: cls.teacher};
+      return {text: cls.name, cols: this.columnSize, rows: 1, color: '', text2: cls.teacher};
     }else{
-      return {text: '', cols: 2, rows: 1, color: '', text2: ''};
+      return {text: '', cols: this.columnSize, rows: 1, color: '', text2: ''};
     }
   }
 
