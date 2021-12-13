@@ -4,55 +4,32 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <form>
-
-      <ion-item>
-        <ion-label floating>Email</ion-label>
-        <!-- <ion-input
-          [(ngModel)]="user.email"
-          name="email"
-          type="text"
-          autocapitalize="off"
-          required
-        >
-        </ion-input> -->
-      </ion-item>
-
-      <ion-item>
-        <ion-label floating>Contraseña</ion-label>
-        <!-- <ion-input
-          [(ngModel)]="user.password"
-          name="password"
-          type="password"
-          required
-        >
-        </ion-input> -->
-      </ion-item>
-      <div padding>
-        <button>
-        <!-- <button
-            ion-button
-            (click)="login()"
-            type="submit"
-            color="primary"
-            block
-        > -->
-          Login
-        </button>
-
-        <button>
-          <!-- ion-button
-          (click)="signin()"
-          type="submit"
-          color="secondary"
-          block
-        > -->
-          Dar de alta
-        </button>
-      </div>
-    </form>
-  </ion-list>
-
+<ion-content color="primary" padding>
+  <form #form="ngForm" (ngSubmit)="login(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Login</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="nombre.apellido@live.u-tad.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Login</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <div text-center> Si no recuerda la contraseña, pulse <a routerLink='/register'>
+        aquí</a><br> para recuperarla
+        </div>
+    </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

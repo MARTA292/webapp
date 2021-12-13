@@ -224,14 +224,12 @@ export class ScheduleService {
     // };
   }
 
-
   public getSchedule(student: StudentDTO) {
     return this.http.get<ScheduleDTO>(environment.apiUrl + 'schedule', {
       params: {
         id: student.id,
         name: student.name
       }
-    }
-    );
+    });
   }
 }
