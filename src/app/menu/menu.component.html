@@ -10,10 +10,10 @@
       <ion-item routerLink="/login" (click)="closeMenu()">Inicio</ion-item>
       <!-- Para el login https://stalinmaza97.hashnode.dev/ionic-4-input-password-con-boton-para-mostrarocultar-texto -->
       <ion-item routerLink="/schedule" (click)="closeMenu()">Horario</ion-item>
-      <ion-item (click)="closeMenu()">Calendario</ion-item>
-      <ion-item (click)="closeMenu()">Talleres</ion-item>
-      <ion-item (click)="closeMenu()">Comunidades</ion-item>
-      <ion-item (click)="closeMenu()"> U-Talk</ion-item> <!--https://ionicframework.com/docs/api/modal-->
+      <ion-item routerLink="/calendar" (click)="closeMenu()">Calendario</ion-item>
+      <ion-item routerLink="/" (click)="closeMenu()">Talleres</ion-item>
+      <ion-item routerLink="/" (click)="closeMenu()">Comunidades</ion-item>
+      <ion-item routerLink="/" (click)="closeMenu()"> U-Talk</ion-item> <!--https://ionicframework.com/docs/api/modal-->
     </ion-list>
   </ion-content>
 </ion-menu>
